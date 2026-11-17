@@ -1,0 +1,10 @@
+{
+  "pid": 8444,
+  "startedAt": 1794879816931,
+  "interactive": true,
+  "command": "dev",
+  "cwd": "C:/Users/Earth/Desktop/Bookstore/bookstore",
+  "port": 3000,
+  "hostname": "::",
+  "url": "http://localhost:3000"
+}
