@@ -9,7 +9,9 @@
                     <label class="text-2xl">Username</label>
                     <input class="mb-2" v-model="username" type="text" placeholder="Username">
                     <label class="text-2xl">Password</label>
-                    <input class="mb-2" v-model="username" type="text" placeholder="Username">
+                    <input class="mb-2" v-model="password" type="password" placeholder="Password">
+                    <label class="text-2xl">Email</label>
+                    <input class="mb-2" v-model="email" type="text" placeholder="Email">
                     <button class="bg-zinc-600 hover:bg-zinc-700 p-1 rounded-md text-white">Register</button>
                     <NuxtLink class="mt-2 hover:text-zinc-600" to="/">Login to an existing account</NuxtLink>
                 </form>
@@ -25,18 +27,24 @@ const api = createApi();
         data(){
             return{
                 username:'',
-                password:''
+                password:'',
+                email:'',
+                role: 3
             }
         },
         methods:{
             async submitRegister(){
                 try {
-                    const res = await api.post('/api/register',{
+                    const res = await api.post('/api/auth/register',{
                         username: this.username,
-                        password: this.password
+                        password: this.password,
+                        email: this.email,
+                        role: this.role
                     });
 
                     console.log(res.data);
+                    alert('success!');
+                    await navigateTo('/');
                 }catch(err){
                     console.error(err.response?.data?.message);
                     alert(err.message);
@@ -47,5 +55,13 @@ const api = createApi();
 </script>
 
 <style scoped>
-
+input{
+    border-width: 0.2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+button{
+    transition: 120ms;
+    cursor: pointer;
+}
 </style>

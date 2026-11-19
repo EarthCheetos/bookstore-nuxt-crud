@@ -18,7 +18,7 @@
 # .fleet
 # .idea
 
-# # Local env files
+# # Local env filcommes
 # .env
 # .env.*
 # !.env.example

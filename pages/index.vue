@@ -9,7 +9,7 @@
                     <label class="text-2xl">Username</label>
                     <input class="mb-2" v-model="username" type="text" placeholder="Username">
                     <label class="text-2xl">Password</label>
-                    <input class="mb-2" v-model="username" type="text" placeholder="Username">
+                    <input class="mb-2" v-model="password" type="password" placeholder="Username">
                     <button class="bg-zinc-600 hover:bg-zinc-700 p-1 rounded-md text-white">Login</button>
                     <NuxtLink class="mt-2 hover:text-zinc-600" to="/register">Make a new account</NuxtLink>
                 </form>
@@ -31,7 +31,7 @@ const api = createApi();
         methods:{
             async submitLogin(){
                 try {
-                    const res = await api.post('/api/login',{
+                    const res = await api.post('/api/auth/login',{
                         username: this.username,
                         password: this.password
                     });
@@ -48,7 +48,7 @@ const api = createApi();
                     if(payload.role === 1){
                         await navigateTo('/admin/dashboard');
                     }else if(payload.role === 2 ){
-                        await navigateTo('/seller/dashboard');
+                        await navigateTo('/seller/sellerdashboard');
                     }else if(payload.role === 3){
                         await navigateTo('/bookpage');
                     }else{
