@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-export function createApi(baseURL = 'http://192.168.20.18:5000'){
+export function createApi(baseURL = 'http://192.168.20.20:5000'){
     const api = axios.create({
         baseURL,
         headers:{
-            'Content-Type':'application/json'
         }
     });
 

@@ -46,7 +46,7 @@ const api = createApi();
                     const payload = JSON.parse(atob(token.split('.')[1]));
 
                     if(payload.role === 1){
-                        await navigateTo('/admin/dashboard');
+                        await navigateTo('/admin/admindashboard');
                     }else if(payload.role === 2 ){
                         await navigateTo('/seller/sellerdashboard');
                     }else if(payload.role === 3){
